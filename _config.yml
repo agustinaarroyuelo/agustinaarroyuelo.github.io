@@ -24,7 +24,7 @@ github_username:  agustinaarroyuelo
 
 # Build settings
 markdown: kramdown
-theme: minimal
+theme: minima
 plugins:
   - jekyll-feed
 
