@@ -102,7 +102,7 @@ rej_abc = rejection_abc(model=model)
 ```
 
 
-![png]({{ "/home/agustina/gsoc_blog/site/assets/images/output_5_0.png" | absolute_url}})
+![png]({{ "/assets/images/output_5_0.png" | absolute_url}})
 
 
 # For likelihood free inference we need...
