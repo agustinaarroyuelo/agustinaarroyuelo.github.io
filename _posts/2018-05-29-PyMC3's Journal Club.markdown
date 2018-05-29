@@ -102,7 +102,7 @@ rej_abc = rejection_abc(model=model)
 ```
 
 
-![png]({{"./_site/assets/output_5_0.png}})
+![png]({{"./_site/assets/output_5_0.png"}})
 
 
 # For likelihood free inference we need...
@@ -164,7 +164,7 @@ reject_abc, ys = rejection_abc(model=model, samples=500, ϵ=threshold)
 ```
 
 
-![png]({{"./_site/assets/output_15_0.png}})
+![png]({{"./_site/assets/output_15_0.png"}})
 
 
 ### Thresholds usually decrease like $N^{-1/4}$ or $N^{-1/(d+5)}$ where d is the dimension of the parameter space and N the number of accepted samples. 
@@ -179,7 +179,7 @@ plt.legend();
 ```
 
 
-![png]({{"./_site/assets/output_17_0.png}})
+![png]({{"./_site/assets/output_17_0.png"}})
 
 
 # Weights 
