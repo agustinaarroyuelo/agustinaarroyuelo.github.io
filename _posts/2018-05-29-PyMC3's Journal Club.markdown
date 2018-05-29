@@ -1,3 +1,9 @@
+---
+yout: post
+title:  "PyMC3's Journal Club "
+date:   2018-05-29 16:00 +0530
+categories: jekyll update
+---
 
 # Google Summer of Code project
 
