@@ -178,8 +178,11 @@ plt.ylabel('$ϵ$')
 plt.legend(); 
 ```
 
-
+<ul>
+<li  markdown="1">
 ![png]({{"/assets/images/output_17_0.png"}})
+</li>
+</ul>
 
 
 # Weights 
