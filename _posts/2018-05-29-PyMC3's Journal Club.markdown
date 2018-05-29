@@ -164,7 +164,7 @@ reject_abc, ys = rejection_abc(model=model, samples=500, ϵ=threshold)
 ```
 
 
-![png]({{"assets/images/output_15_0.png"}})
+![png]({{ "assets/images/output_15_0.png" }})
 
 
 ### Thresholds usually decrease like $N^{-1/4}$ or $N^{-1/(d+5)}$ where d is the dimension of the parameter space and N the number of accepted samples. 
