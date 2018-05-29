@@ -114,7 +114,7 @@ rej_abc = rejection_abc(model=model)
 
 # SMC - ABC is a bit more complex...
 
-![SMC-ABC.png](SMC-ABC.png)
+![SMC-ABC.png](SMC-ABC.png){:class="img-responsive"}
 _(Lintusaari, 2016)_
 
 1- $\theta$'s are drawn from the prior, if it is the first stage, or proposal distribution if it is not. 
