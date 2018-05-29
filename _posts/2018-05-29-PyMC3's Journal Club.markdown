@@ -22,9 +22,6 @@ import arviz as az
 plt.style.use('bmh')
 ```
 
-    /home/agustina/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-
 
 # What is ABC?
 
@@ -117,7 +114,7 @@ rej_abc = rejection_abc(model=model)
 
 # SMC - ABC is a bit more complex...
 
-![SMC-ABC.png](attachment:SMC-ABC.png)
+![SMC-ABC.png](SMC-ABC.png)
 _(Lintusaari, 2016)_
 
 1- $\theta$'s are drawn from the prior, if it is the first stage, or proposal distribution if it is not. 
@@ -144,17 +141,6 @@ _The weight of $\theta$ is proportional to the density of $\theta$ in the prior 
 ```python
 pm.Simulator('name', function=F(), distance='weighted Euclidean', observed=data, epsilon=5, params=[α, β, γ], sum_stat='')
 ```
-
-
-    ---------------------------------------------------------------------------
-
-    AttributeError                            Traceback (most recent call last)
-
-    <ipython-input-5-28163e137041> in <module>()
-    ----> 1 pm.Simulator('name', function=F(), distance='weighted Euclidean', observed=data, epsilon=5, params=[α, β, γ], sum_stat='')
-    
-
-    AttributeError: module 'pymc3' has no attribute 'Simulator'
 
 
 * # Thresholds are typically determined by simulating a pool of $(y, \theta)$ pairs and setting $\epsilon$ in a quantile of this distribution, for example 1%.
