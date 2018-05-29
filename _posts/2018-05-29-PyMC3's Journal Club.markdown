@@ -102,7 +102,7 @@ rej_abc = rejection_abc(model=model)
 ```
 
 
-![png]({{"/home/agustina/gsoc_blog/_site/assets/images/output_5_0.png"}})
+![png]({{ "/home/agustina/gsoc_blog/site/assets/images/output_5_0.png" }})
 
 
 # For likelihood free inference we need...
@@ -114,7 +114,7 @@ rej_abc = rejection_abc(model=model)
 
 # SMC - ABC is a bit more complex...
 
-![SMC-ABC.png]({{"assets/images/SMC-ABC.png"}})
+![png]({{ "assets/images/SMC-ABC.png" }})
 _(Lintusaari, 2016)_
 
 1- $\theta$'s are drawn from the prior, if it is the first stage, or proposal distribution if it is not. 
@@ -180,7 +180,7 @@ plt.legend();
 
 <ul>
 <li  markdown="1">
-![png]({{"/assets/images/output_17_0.png"}})
+![png]({{ "/assets/images/output_17_0.png" }})
 </li>
 </ul>
 
