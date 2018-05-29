@@ -114,7 +114,7 @@ rej_abc = rejection_abc(model=model)
 
 # SMC - ABC is a bit more complex...
 
-![SMC-ABC.png]({{"../_site/assets/images/SMC-ABC.png"}})
+![SMC-ABC.png]({{"assets/images/SMC-ABC.png"}})
 _(Lintusaari, 2016)_
 
 1- $\theta$'s are drawn from the prior, if it is the first stage, or proposal distribution if it is not. 
@@ -164,7 +164,7 @@ reject_abc, ys = rejection_abc(model=model, samples=500, ϵ=threshold)
 ```
 
 
-![png]({{"../_site/assets/images/output_15_0.png"}})
+![png]({{"assets/images/output_15_0.png"}})
 
 
 ### Thresholds usually decrease like $N^{-1/4}$ or $N^{-1/(d+5)}$ where d is the dimension of the parameter space and N the number of accepted samples. 
@@ -179,7 +179,7 @@ plt.legend();
 ```
 
 
-![png]({{"../_site/assets/images/output_17_0.png"}})
+![png]({{"/assets/images/output_17_0.png"}})
 
 
 # Weights 
