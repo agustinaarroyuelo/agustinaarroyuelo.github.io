@@ -5,6 +5,9 @@ date:   2018-05-29 16:00 +0530
 categories: jekyll update
 ---
 
+_Last friday I participated in PyMC3's journal club meeting. I talked to PyMC3 members about my Google Summer of Code project. In this post I am showing the jupyter notebook I used to guide the talk. 
+It was very helpful to get feedback from the developers about my project ideas. I look forward to join in next journal club meetings :)._ 
+
 # Google Summer of Code project
 
 # Developping a module for Approximate Bayesian Computation for PyMC3
@@ -198,13 +201,6 @@ The user should be able to choose from a set of distance functions. [Interesting
 
 [ABC (R package)](https://besjournals.onlinelibrary.wiley.com/doi/pdf/10.1111/j.2041-210X.2011.00179.x), [PyABC](https://academic.oup.com/bioinformatics/advance-article-abstract/doi/10.1093/bioinformatics/bty361/4995841)
 
-
-| $$SMC$$       | $$SMC-ABC$$           |
-| --------- |:-------------:|
-| Both methods compute the proposal's |covariance from the previous step|
-| $$w^{(i)}  =  f(D|M,\theta)^{\beta_1 - \beta_0}$$  |$$w^{(i)}  \alpha  \frac{p(\theta^{(i)})}{\phi(\theta^{(i)})}$$|
-|$$\beta$$|$$\epsilon$$|
-|$$Likelihood$$|$$Simulator$$|
 
 # Ending remarks
 * In this Google Summer of Code project we will use and refactor the current implementation of SMC, to add the necessary components for an SMC-ABC module.
