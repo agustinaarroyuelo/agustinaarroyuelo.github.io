@@ -36,6 +36,7 @@ epsilon=np.linspace(1, 0.5, 8)
 step_kwargs = {'minimum_eps':0.55, 'iqr_scale': 2}
 ```
 
+Notice that in this model the is no likelihood, only a prior for the mean. 
 
 ```python
 with pm.Model() as model:
@@ -43,10 +44,9 @@ with pm.Model() as model:
     trace = pm.sample(step=pm.SMC_ABC(observed=data), step_kwargs=step_kwargs)
 ```
 
-    UserWarning: Warning: SMC is an experimental step method, and not yet recommended for use in PyMC3!
-      warnings.warn(EXPERIMENTAL_WARNING)
-    Adding model likelihood to RVs!
-    /home/agustina/Documents/pymc3/pymc3/step_methods/smc_ABC.py:458: UserWarning: Warning: SMC is an experimental step method, and not yet recommended for use in PyMC3!
+In future implementations the choice of summary statistics and distance function will be available to the user. As for now they are hidden and hardcoded.
+
+	UserWarning: Warning: SMC is an experimental step method, and not yet recommended for use in PyMC3!
       warnings.warn(EXPERIMENTAL_WARNING)
     Init new trace!
     Sample initial stage: ...
