@@ -1,12 +1,13 @@
 ---
 yout: post
-title:  "Integrating SMC-ABC sampler into PyMC3"
+title:  "Integrating SMC-ABC step method into PyMC3"
 date:   2018-07-06 16:00 +0530
 categories: jekyll update
 ---
 
+Hello everyone! :)
 
-
+We are approaching the Second evaluation period in GSoC 2018 and the Sequential Monte Carlo ABC step method is slowly but surely taking shape. 
 
 
 ```python
@@ -19,10 +20,7 @@ from tempfile import mkdtemp
 test_folder = mkdtemp(prefix='SMC_TEST')
 ```
 
-    /home/agustina/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-
-
+Here I am showing how it can sample from a normal distribution using a set of predefined epsilon thresholds, or computing them by scaling the interquartile range with the _iqr_scale_ parameter. it will continue to sample until a minimum epsilon value is reached.
 
 ```python
 data = np.random.normal(0, 5, 1000)
@@ -45,7 +43,7 @@ with pm.Model() as model:
     trace = pm.sample(step=pm.SMC_ABC(observed=data), step_kwargs=step_kwargs)
 ```
 
-    /home/agustina/Documents/pymc3/pymc3/step_methods/smc_ABC.py:144: UserWarning: Warning: SMC is an experimental step method, and not yet recommended for use in PyMC3!
+    UserWarning: Warning: SMC is an experimental step method, and not yet recommended for use in PyMC3!
       warnings.warn(EXPERIMENTAL_WARNING)
     Adding model likelihood to RVs!
     /home/agustina/Documents/pymc3/pymc3/step_methods/smc_ABC.py:458: UserWarning: Warning: SMC is an experimental step method, and not yet recommended for use in PyMC3!
