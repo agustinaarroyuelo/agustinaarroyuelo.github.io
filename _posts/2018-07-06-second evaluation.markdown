@@ -14,7 +14,6 @@ We are approaching the second evaluation period in GSoC 2018 and the Sequential 
 %matplotlib inline
 import numpy as np
 import pymc3 as pm
-import arviz as az
 from pymc3.step_methods import smc_ABC
 from tempfile import mkdtemp
 test_folder = mkdtemp(prefix='SMC_TEST')
@@ -70,7 +69,7 @@ In future implementations the choice of summary statistics and distance function
 
 
 ```python
-az.traceplot(trace);
+pm.traceplot(trace);
 ```
 
 
@@ -79,7 +78,7 @@ az.traceplot(trace);
 
 
 ```python
-az.summary(trace)
+pm.summary(trace)
 ```
 
 
