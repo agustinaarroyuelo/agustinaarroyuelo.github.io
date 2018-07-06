@@ -123,5 +123,7 @@ az.summary(trace)
 </table>
 </div>
 
-Results are not quite perfect yet, but they are looking good so far. Here is a link to my smcabc branch, in case you want to take a look at the [source code](https://github.com/agustinaarroyuelo/pymc3/tree/smcabc) :)
+Results are not quite perfect yet, but they are looking good so far. How to provide a simulator/emulator environment with PyMC3 is one of the main challenges left. 
+
+Here is a link to my smcabc branch, in case you want to take a look at the [source code](https://github.com/agustinaarroyuelo/pymc3/tree/smcabc) :)
 
