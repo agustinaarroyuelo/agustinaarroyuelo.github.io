@@ -23,20 +23,23 @@ test_folder = mkdtemp(prefix='SMC_TEST')
 Here I am showing how it can sample from a normal distribution using a set of predefined epsilon thresholds, or computing them by scaling the interquartile range with the _iqr_scale_ parameter. it will continue to sample until a minimum epsilon value is reached.
 
 ```python
+# true data
 data = np.random.normal(0, 5, 1000)
 ```
 
 
 ```python
+# ladder of pre-defined epsilons
 epsilon=np.linspace(1, 0.5, 8)
 ```
 
 
 ```python
+# parameters for the step method
 step_kwargs = {'minimum_eps':0.55, 'iqr_scale': 2}
 ```
 
-Notice that in this model the is no likelihood, only a prior for the mean. 
+Notice that in this model there is no likelihood, only a prior for the mean. 
 
 ```python
 with pm.Model() as model:
@@ -120,4 +123,5 @@ az.summary(trace)
 </table>
 </div>
 
+Results are not quite perfect yet, but they are looking good so far. Here is a link to my smcabc branch, in case you want to take a look at the [source code](https://github.com/agustinaarroyuelo/pymc3/tree/smcabc) :)
 
