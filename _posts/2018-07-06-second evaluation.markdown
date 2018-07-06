@@ -7,7 +7,7 @@ categories: jekyll update
 
 Hello everyone! :)
 
-We are approaching the Second evaluation period in GSoC 2018 and the Sequential Monte Carlo ABC step method is slowly but surely taking shape. 
+We are approaching the second evaluation period in GSoC 2018 and the Sequential Monte Carlo ABC step method is slowly but surely coming into place. 
 
 
 ```python
@@ -20,7 +20,7 @@ from tempfile import mkdtemp
 test_folder = mkdtemp(prefix='SMC_TEST')
 ```
 
-Here I am showing how it can sample from a normal distribution using a set of predefined epsilon thresholds, or computing them by scaling the interquartile range with the _iqr_scale_ parameter. It will continue to sample until a minimum epsilon value is reached.
+Here I am showing how it can sample from a normal distribution using a set of predefined epsilon thresholds, or computing them by scaling the interquartile range with the ```iqr_scale``` parameter. It will continue to sample until a minimum epsilon value is reached.
 
 ```python
 # true data
@@ -30,7 +30,7 @@ data = np.random.normal(0, 5, 1000)
 
 ```python
 # ladder of pre-defined epsilons
-epsilon=np.linspace(1, 0.5, 8)
+epsilon = np.linspace(1, 0.5, 8)
 ```
 
 
