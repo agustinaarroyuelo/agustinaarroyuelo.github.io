@@ -124,5 +124,5 @@ pm.summary(trace)
 
 Results are not quite perfect yet, but they are looking good so far. How to provide a simulator/emulator environment with PyMC3 is one of the main challenges left. 
 
-Here is a link to my smcabc branch, in case you want to take a look at the [source code](https://github.com/agustinaarroyuelo/pymc3/tree/smcabc) :)
+Here is a link to my SMC-ABC branch, in case you want to take a look at the [source code](https://github.com/agustinaarroyuelo/pymc3/tree/smcabc) :)
 
