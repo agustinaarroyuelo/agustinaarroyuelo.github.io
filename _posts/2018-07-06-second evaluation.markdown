@@ -20,7 +20,7 @@ from tempfile import mkdtemp
 test_folder = mkdtemp(prefix='SMC_TEST')
 ```
 
-Here I am showing how it can sample from a normal distribution using a set of predefined epsilon thresholds, or computing them by scaling the interquartile range with the _iqr_scale_ parameter. it will continue to sample until a minimum epsilon value is reached.
+Here I am showing how it can sample from a normal distribution using a set of predefined epsilon thresholds, or computing them by scaling the interquartile range with the _iqr_scale_ parameter. It will continue to sample until a minimum epsilon value is reached.
 
 ```python
 # true data
