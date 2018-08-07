@@ -5,11 +5,12 @@ date:   2018-07-08 16:00 +0530
 categories: jekyll update
 ---
 Hi, everyone! 
-This blog post contains a detailed review of the development of the Google Summer of Code  of the project [Module for Approximate Bayesian Computation](https://summerofcode.withgoogle.com/projects/#6054208688619520). I will go over key points of the project and provide code snippets and links to commits that show the current state of the implementation. Along the way, I will point out challeging points and future work to be done. Finally I will test the work product in a common example.
+
+This blog post contains a detailed review of the development of the Google Summer of Code project [Module for Approximate Bayesian Computation](https://summerofcode.withgoogle.com/projects/#6054208688619520). I will go over key points of the project and provide code snippets and links to commits that show the current state of the implementation. Along the way, I will point out challeging points and future work to be done. Finally I will test the work product in a common example.
 
 
 # Project Abstract
-Approximate Bayesian Computation (ABC) algorithms, also called likelihood free inference techniques, are a family of methods that can perform inference without the need to define a likelihood function (_Lintusaari_, 2016). Additionally, the ABC approach has proven to be successful over likelihood based methods for several models. We propose to implement a module for ABC in PyMC3, specifically Sequential Monte Carlo-ABC (SMC-ABC). Our work will signify a meaningful increase in the spectrum of models that PyMC3 will be able to perform.
+Approximate Bayesian Computation (ABC) algorithms, also called likelihood free inference techniques, are a family of methods that can perform inference without the need to define a likelihood function (_Lintusaari_, 2016). Additionally, the ABC approach has proven to be successful over likelihood based methods for several models. We propose to implement a module for ABC in PyMC3, specifically Sequential Monte Carlo-ABC (SMC-ABC). Our work will signify a meaningful increase in the spectrum of models that PyMC3 will be able to run.
 
 # Main Objective
 This project's objective is to implement an ABC module in PyMC3 on the basis of the current implementation of the Sequential Monte-Carlo Algorithm. 
@@ -57,7 +58,6 @@ ABC iteratevly compares the summary statistics computed from simulated data, wit
 In this SMC-ABC implemetation we constructed the _Simulator_ distribution. This is a dummy distribution that only stores the observed data and a function to compute the simulated data.
 
 ## Defining a _Simulator_ distribution
-[Link to simulator](https://github.com/agustinaarroyuelo/pymc3/blob/smcabc/pymc3/distributions/simulator.py)
 
 This is a fraction of the simulator code:
 
@@ -75,7 +75,7 @@ As you can see, this variable stores the Simulator function and the observed dat
 ```python 
 simulator = pm.Simulator('simulator', function, observed=data)
 ```
-
+[Link to simulator](https://github.com/agustinaarroyuelo/pymc3/blob/smcabc/pymc3/distributions/simulator.py)
 
 ## How are Summary Statistics computed?
 The user can choose between a predefined set of summary statistics. The SMC-ABC sampler is able to perform using a combination of summary statistics, that is why the argument for this function is a list. The user can define it's own summary statistic function and pass it to the sampler. Here is the function and use examples:
@@ -238,13 +238,13 @@ Trying to estimate the mean and standard deviation of normal data
 data.mean(), data.std()
 (-0.04784993519517787, 1.004371943957994)
 ```
-Define a data simulator function that takes a mean and a scale parameter and return data of the same shape as the observed data.
+I defined a data simulator function that takes a mean and a scale parameter and return data of the same shape as the observed data.
 
 ```python
 def normal_sim(a, b):
     return np.random.normal(a, np.abs(b), 1000)
 ```
-Define a PyMC3 model.
+PyMC3 model:
 
 ```python
 with pm.Model() as example:
@@ -345,7 +345,7 @@ This example is based on the [Scipy Lokta-Volterra Tutorial](http://scipy.github
 ```python
 from scipy.integrate import odeint
 ```
-First we will generate data using know parameters.
+First we will generate data using known parameters.
 
 ```python
 # Definition of parameters
@@ -509,6 +509,6 @@ pm.summary(trace)
 </div>
 
 # Ending Remarks
-bla bla
+The results we have observed so far are a good start but this module is still in an experimental phase.
 
 
