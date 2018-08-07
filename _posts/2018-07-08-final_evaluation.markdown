@@ -84,7 +84,9 @@ class Simulator(NoDistribution):
     def __init__(self, function, *args, **kwargs):
    
         self.function = function
-        observed = self.data```
+        observed = self.data
+```
+
 As you can see, this variable stores the Simulator function and the observed data. You can define it this way:
 
 ```python 
