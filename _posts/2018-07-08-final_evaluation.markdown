@@ -88,8 +88,8 @@ class Simulator(NoDistribution):
 As you can see, this variable stores the Simulator function and the observed data. You can define it this way:
 
 ```python 
-simulator = pm.Simulator('simulator', function, observed=data)
-```
+simulator = pm.Simulator('simulator', function, observed=data)```
+
 
 ## _How are Summary Statistics computed_?
 The user can choose between a predefined set of summary statistics. As the argument for this function is a list, a combination of summary statistics can be used. The user can define it's own summary statistic function and pass it to the sampler. 
