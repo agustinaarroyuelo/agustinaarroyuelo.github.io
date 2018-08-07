@@ -1,19 +1,17 @@
 ---
 yout: post
-title:  "Module for Approximate Bayesian Computation"
+title:  "Google Summer of Code - Final Evaluation"
 date:   2018-07-08 16:00 +0530
 categories: jekyll update
 ---
-## Google Summer of Code - Final Evaluation
-
 Hi, everyone! 
 This blog post contains a detailed review of the development of the Google Summer of Code  of the project [Module for Approximate Bayesian Computation](https://summerofcode.withgoogle.com/projects/#6054208688619520). I will go over key points of the project and provide code snippets and links to commits that show the current state of the implementation. Along the way, I will point out challeging points and future work to be done. Finally I will test the work product in a common example.
 
 
-### Project Abstract
+# Project Abstract
 Approximate Bayesian Computation (ABC) algorithms, also called likelihood free inference techniques, are a family of methods that can perform inference without the need to define a likelihood function (_Lintusaari_, 2016). Additionally, the ABC approach has proven to be successful over likelihood based methods for several models. We propose to implement a module for ABC in PyMC3, specifically Sequential Monte Carlo-ABC (SMC-ABC). Our work will signify a meaningful increase in the spectrum of models that PyMC3 will be able to perform.
 
-### Main Objective
+# Main Objective
 This project's objective is to implement an ABC module in PyMC3 on the basis of the current implementation of the Sequential Monte-Carlo Algorithm. 
 
 [Link to current PyMC3's SMC code](https://github.com/pymc-devs/pymc3/blob/6fd230fdd032744b1d30a9485403ff0a59288906/pymc3/step_methods/smc.py)
@@ -21,9 +19,9 @@ This project's objective is to implement an ABC module in PyMC3 on the basis of 
 [Link to a recent PR refactoring the SMC code](https://github.com/pymc-devs/pymc3/pull/3124)
 
 
-### What was done
+# What was done
  
-* In this project a complete refactorization of the Sequential Monte Carlo code was made. [Refactor SMC ABC code](https://github.com/pymc-devs/pymc3/commit/5c2b1361b835b360f14488b808e4b05d90ca2fbb).
+* In this project a complete refactorization of the Sequential Monte Carlo code was made. [Link to refactorized SMC-ABC code](https://github.com/pymc-devs/pymc3/commit/5c2b1361b835b360f14488b808e4b05d90ca2fbb).
 * We defined the SMC-ABC class with attributes that are particularly necessary for ABC. [Link to SMC-ABC class code](https://github.com/agustinaarroyuelo/pymc3/blob/1c6b32794162364b3619225ae278844be365da99/pymc3/step_methods/smc_ABC.py#L23).
 * A new PyMC3 distribution was added, the Simulator. [Link to simulator](https://github.com/agustinaarroyuelo/pymc3/blob/smcabc/pymc3/distributions/simulator.py).
 * We defined a function to manage epsilon thresholds. [Link to epsilon computation function](https://github.com/agustinaarroyuelo/pymc3/blob/1c6b32794162364b3619225ae278844be365da99/pymc3/step_methods/smc_ABC.py#L247).
@@ -31,11 +29,11 @@ This project's objective is to implement an ABC module in PyMC3 on the basis of 
 * We defined functions to manage the different distance metrics available to the user. [Link to distance metrics code](https://github.com/agustinaarroyuelo/pymc3/blob/1c6b32794162364b3619225ae278844be365da99/pymc3/step_methods/smc_ABC.py#L340).
 * With the components metioned above, we defined a sampling function that applies a rejection kernel. [Link to sampling function](https://github.com/agustinaarroyuelo/pymc3/blob/1c6b32794162364b3619225ae278844be365da99/pymc3/step_methods/smc_ABC.py#L80).
 
-## What is left to do
+# What is left to do
 * This implementation would need several improvements in terms of performance. For example, parallelize the simulator function, which is the most expesive step in the sampler. 
 * In many cases the sampler encounters issues with covariance matrix computing and low or zero acceptance rates. 
 
-## Links to core commits
+# Links to core commits
 
 These commits contain most of the new code.
 
@@ -48,17 +46,17 @@ These commits contain most of the new code.
 * [Final changes to epsilon schedule computation](https://github.com/pymc-devs/pymc3/commit/f4fada25ec922f51cd1ed1fbb42d1998753bd9cf).
 
 
-## Development process details
+# Development process details
 Now I will go over challenging points in the development process. 
 
-### How do we define a PyMC3 model without a likelihood?
+## How do we define a PyMC3 model without a likelihood?
 This was one of the first challenges we encountered. The conceptual basis of an ABC module is to provide the user with the API for perfoming inference on a model with no likelihood function. 
 
 ABC iteratevly compares the summary statistics computed from simulated data, with those of the observed data. Which presents the need for a variable inside the model that stores the observed data. This variable tipically is the _likelihood_. 
 
 In this SMC-ABC implemetation we constructed the _Simulator_ distribution. This is a dummy distribution that only stores the observed data and a function to compute the simulated data.
 
-### Defining a _Simulator_ distribution
+## Defining a _Simulator_ distribution
 [Link to simulator](https://github.com/agustinaarroyuelo/pymc3/blob/smcabc/pymc3/distributions/simulator.py)
 
 This is a fraction of the simulator code:
@@ -79,7 +77,7 @@ simulator = pm.Simulator('simulator', function, observed=data)
 ```
 
 
-### _How are Summary Statistics computed_?
+## How are Summary Statistics computed?
 The user can choose between a predefined set of summary statistics. The SMC-ABC sampler is able to perform using a combination of summary statistics, that is why the argument for this function is a list. The user can define it's own summary statistic function and pass it to the sampler. Here is the function and use examples:
 
 
@@ -138,7 +136,7 @@ array([-0.04784994,  1.00437194,  1.008763  ])
 Now I will define a custom summary statistic function and apply it on a two-dimensional array of data.
 
 ```python
-## custom summary statistic function
+# custom summary statistic function
 def custom_f(data):
     return np.square(data.mean()+data.var())
 ```
@@ -207,7 +205,7 @@ This function is used internallly for the sampler for computing summary statisti
 
 [Link to summary statistics computation code](https://github.com/agustinaarroyuelo/pymc3/blob/1c6b32794162364b3619225ae278844be365da99/pymc3/step_methods/smc_ABC.py#L308)
 
-###  Distance metrics
+##  Distance metrics
 Distance metrics are an argument of the SMC-ABC class. The user can choose any of the following distance metrics:
 * Absolute difference.
 * Sum of squared distance.
@@ -219,24 +217,24 @@ Default option is absolute difference. Once the argument is read it is used in t
 
 [Link to distance metrics code](https://github.com/agustinaarroyuelo/pymc3/blob/1c6b32794162364b3619225ae278844be365da99/pymc3/step_methods/smc_ABC.py#L340)
 
-### Epsilon thresholds computation
+## Epsilon thresholds computation
 An SMC-ABC sampler runs across a series of acceptance-rejection thresholds called _epsilon_. 
 On this implementation the user can provide a sequence in the form of a list, otherwise they are computed taking a factor of the inter quantile range of the last simulated data.
 
 [Link to epsilon computation function](https://github.com/agustinaarroyuelo/pymc3/blob/1c6b32794162364b3619225ae278844be365da99/pymc3/step_methods/smc_ABC.py#L247)
 
-### Making all of these components work toghether
+## Making all of these components work toghether
 
 This is the [sampler](https://github.com/agustinaarroyuelo/pymc3/blob/1c6b32794162364b3619225ae278844be365da99/pymc3/step_methods/smc_ABC.py#L80) SMC-ABC function that combines the components above. 
 
-## Examples
+# Examples
 
 ## A trivial example
 Trying to estimate the mean and standard deviation of normal data
 
 
 ```python
-## true mean and std
+# true mean and std
 data.mean(), data.std()
 (-0.04784993519517787, 1.004371943957994)
 ```
@@ -350,21 +348,21 @@ from scipy.integrate import odeint
 First we will generate data using know parameters.
 
 ```python
-## Definition of parameters
+# Definition of parameters
 a = 1.
 b = 0.1
 c = 1.5
 d = 0.75
 
-## initial population
+# initial population
 X0 = [10., 5.]
-## size of data
+# size of data
 size = 1000
-## time lapse
+# time lapse
 time = 15
 t = np.linspace(0, time, size)
 
-## ODEs
+# ODEs
 def dX_dt(X, t, a, b, c, d):
     """ Return the growth rate of fox and rabbit populations. """
 
@@ -510,7 +508,7 @@ pm.summary(trace)
 </table>
 </div>
 
-## Ending Remarks
-
+# Ending Remarks
+bla bla
 
 
