@@ -15,9 +15,9 @@ Approximate Bayesian Computation (ABC) algorithms, also called likelihood free i
 # Main Objective
 This project's objective is to implement an ABC module in PyMC3 on the basis of the current implementation of the Sequential Monte-Carlo Algorithm. 
 
-[Link to current PyMC3's SMC code](https://github.com/pymc-devs/pymc3/blob/6fd230fdd032744b1d30a9485403ff0a59288906/pymc3/step_methods/smc.py)
+[Link to current PyMC3's SMC code](https://github.com/pymc-devs/pymc3/blob/6fd230fdd032744b1d30a9485403ff0a59288906/pymc3/step_methods/smc.py).
 
-[Link to a recent PR refactoring the SMC code](https://github.com/pymc-devs/pymc3/pull/3124)
+[Link to a recent PR refactoring the SMC code](https://github.com/pymc-devs/pymc3/pull/3124).
 
 
 # What was done
