@@ -325,7 +325,8 @@ pm.summary(trace_example)
 ```python
 _, ax = plt.subplots(figsize=(12,6))
 pm.kdeplot(data, label='True data', ax=ax, marker='.')
-pm.kdeplot(normal_sim(trace_example['a'].mean(), trace_example['b'].mean()), ax=ax)
+pm.kdeplot(normal_sim(trace_example['a'].mean(), 
+		      trace_example['b'].mean()), ax=ax)
 ax.legend();
 ```
 
@@ -401,7 +402,8 @@ ax.set_ylabel('population');
 
 
 ```python
-# PyMC3 model using Half-normal priors for each parameter, given that none of them can take negative values.
+# PyMC3 model using Half-normal priors for each parameter, 
+# given that none of them can take negative values.
 with pm.Model() as model:
     a = pm.HalfNormal('a', 1, transform=None)
     b = pm.HalfNormal('b', 0.1, transform=None)
