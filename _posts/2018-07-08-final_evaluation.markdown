@@ -406,9 +406,9 @@ ax.set_ylabel('population');
 # given that none of them can take negative values.
 with pm.Model() as model:
     a = pm.HalfNormal('a', 1, transform=None)
-    b = pm.HalfNormal('b', 0.1, transform=None)
+    b = pm.HalfNormal('b', 0.5, transform=None)
     c = pm.HalfNormal('c', 1.5, transform=None)
-    d = pm.HalfNormal('d', 0.75, transform=None)
+    d = pm.HalfNormal('d', 1, transform=None)
     simulator = pm.Simulator('simulator', simulate, observed=observed)
     trace = pm.sample(step=pm.SMC_ABC(n_steps=50, min_epsilon=70, iqr_scale=3), 
                       draws=500)
@@ -513,7 +513,9 @@ pm.summary(trace)
 </table>
 </div>
 
-# Ending Remarks
-The results we have observed so far are a good start but this module is still in an experimental phase.
+# Future Work
+The results we have observed so far are a good start but this module is still in an experimental phase. As I mentioned above, this sampler could be faster if some performance issues were adressed. Mainly, the cost of the simulator function, that is called in every iteration of the sampler and can add up to significant amounts. 
+On the other hand, this implementation is quite unstable, meaning that some runs can show reasonably good results and others can present problems with covariance matrix computation or low acceptance rates. Which results in poor parameter estimation. In future work, we would like to include tunning of the number of metropolis steps that each chain goes through. This might deal efectively with the low acceptance rate issues. Currently, this SMC-ABC implementation, cannot sample from transformed PyMC3 variables, as it encounters boundary issues. 
+
 
 
