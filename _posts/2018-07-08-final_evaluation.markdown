@@ -214,7 +214,7 @@ Distance metrics are an argument of the SMC-ABC class. The user can choose any o
 * Mean squared error.
 * Euclidean distance.
 
-Default option is absolute difference. Once the argument is read it is used in the rejection kernel
+Default option is absolute difference. Once the argument is read it is used in the rejection kernel.
 
 [Link to distance metrics code](https://github.com/agustinaarroyuelo/pymc3/blob/1c6b32794162364b3619225ae278844be365da99/pymc3/step_methods/smc_ABC.py#L340)
 
@@ -222,7 +222,7 @@ Default option is absolute difference. Once the argument is read it is used in t
 An SMC-ABC sampler runs across a series of acceptance-rejection thresholds called _epsilon_. 
 On this implementation the user can provide a sequence in the form of a list, otherwise they are computed taking a factor of the inter quantile range of the last simulated data.
 
-[Link to epsilon computation function](https://github.com/agustinaarroyuelo/pymc3/blob/1c6b32794162364b3619225ae278844be365da99/pymc3/step_methods/smc_ABC.py#L247)
+[Link to epsilon computation function](https://github.com/agustinaarroyuelo/pymc3/blob/1c6b32794162364b3619225ae278844be365da99/pymc3/step_methods/smc_ABC.py#L247).
 
 ## Making all of these components work toghether
 
@@ -231,6 +231,13 @@ This is the [sampler](https://github.com/agustinaarroyuelo/pymc3/blob/1c6b327941
 # Examples
 
 ## A trivial example
+
+```python
+import pymc3 as pm
+import numpy as np
+import matplotlib.pyplot as plt
+```
+
 In this example I will try to estimate the mean and standard deviation of normal data. This problem could be solved using a likelihood, but is still good for testing the SMC-ABC sampler in a very basic instance.
 
 
