@@ -231,7 +231,7 @@ This is the [sampler](https://github.com/agustinaarroyuelo/pymc3/blob/1c6b327941
 # Examples
 
 ## A trivial example
-Trying to estimate the mean and standard deviation of normal data
+In this example I will try to estimate the mean and standard deviation of normal data. This problem could be solved using a likelihood, but is still good for testing the SMC-ABC sampler in a very basic instance.
 
 
 ```python
@@ -270,7 +270,6 @@ with pm.Model() as example:
 ```python
 pm.summary(trace_example)
 ```
-
 
 
 
