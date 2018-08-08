@@ -90,7 +90,8 @@ def get_sum_stats(data, sum_stat=['mean']):
     data : array
         Observed or simulated data
     sum_stat : list
-        List of summary statistics to be computed. Accepted strings are mean, std, var. 
+        List of summary statistics to be computed. 
+        Accepted strings are mean, std, var. 
         Python functions can be passed in this argument.
 
     Returns:
@@ -410,14 +411,15 @@ with pm.Model() as model:
     c = pm.HalfNormal('c', 1.5, transform=None)
     d = pm.HalfNormal('d', 0.75, transform=None)
     simulator = pm.Simulator('simulator', simulate, observed=observed)
-    trace = pm.sample(step=pm.SMC_ABC(n_steps=50, min_epsilon=70, iqr_scale=3), draws=500)
+    trace = pm.sample(step=pm.SMC_ABC(n_steps=50, min_epsilon=70, iqr_scale=3), 
+                      draws=500)
 ```
 
     Using absolute difference as distance metric
     Using ['mean'] as summary statistic
     Sample initial stage: ...
     Sampling stage 0 with Epsilon 8.542185
-     92%|█████████▏| 458/500 [00:09<00:00, 46.22it/s]/home/agustina/anaconda3/lib/python3.6/site-packages/scipy/integrate/odepack.py:218: ODEintWarning: Excess work done on this call (perhaps wrong Dfun type). Run with full_output = 1 to get quantitative information.
+     92%|█████████▏| 458/500 [00:09<00:00, 46.22it/s]
       warnings.warn(warning_msg, ODEintWarning)
     100%|██████████| 500/500 [00:10<00:00, 47.18it/s]
 
@@ -433,7 +435,8 @@ pm.traceplot(trace);
 ```python
 _, ax = plt.subplots(figsize=(16,7))
 ax.plot(observed, 'x')
-ax.plot(simulate(trace['a'].mean(), trace['b'].mean(), trace['c'].mean(), trace['d'].mean()))
+ax.plot(simulate(trace['a'].mean(), trace['b'].mean(), 
+                 trace['c'].mean(), trace['d'].mean()))
 ax.set_xlabel('time')
 ax.set_ylabel('population');
 ```
