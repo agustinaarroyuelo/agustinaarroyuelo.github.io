@@ -78,7 +78,7 @@ simulator = pm.Simulator('simulator', function, observed=data)
 [Link to simulator](https://github.com/agustinaarroyuelo/pymc3/blob/smcabc/pymc3/distributions/simulator.py)
 
 ## How are Summary Statistics computed?
-The user can choose between a predefined set of summary statistics. The SMC-ABC sampler is able to perform using a combination of summary statistics, that is why the argument for this function is a list. The user can define it's own summary statistic function and pass it to the sampler. Here is the function and use examples:
+The user can choose between a predefined set of summary statistics. Also, the SMC-ABC sampler is able to perform inference using a combination of summary statistics, that is why the argument for this function is a list. The user can define it's own summary statistic function and pass it to the sampler. Here is the function and use examples:
 
 
 ```python
