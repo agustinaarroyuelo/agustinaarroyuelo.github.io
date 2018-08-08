@@ -204,7 +204,7 @@ In this dataframe is easier to observe how the summary statistics are displayed:
 
 This function is used internallly for the sampler for computing summary statistics.
 
-[Link to summary statistics computation code](https://github.com/agustinaarroyuelo/pymc3/blob/1c6b32794162364b3619225ae278844be365da99/pymc3/step_methods/smc_ABC.py#L308)
+[Link to summary statistics computation code](https://github.com/agustinaarroyuelo/pymc3/blob/1c6b32794162364b3619225ae278844be365da99/pymc3/step_methods/smc_ABC.py#L308).
 
 ##  Distance metrics
 Distance metrics are an argument of the SMC-ABC class. The user can choose any of the following distance metrics:
