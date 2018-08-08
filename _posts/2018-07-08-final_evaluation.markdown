@@ -523,7 +523,7 @@ pm.summary(trace)
 # Future Work
 The results we have observed so far are a good start but this module is still in an experimental phase. As I mentioned above, this sampler could be faster if some performance issues were adressed. Mainly, the cost of the simulator function, that is called in every iteration of the sampler and can add up to significant amounts. 
 
-On the other hand, this implementation is quite unstable, meaning that some runs can show reasonably good results and others can present problems with covariance matrix computation or low acceptance rates. Which results in poor parameter estimation. In future work, we would like to include tunning of the number of metropolis steps that each chain goes through. This might deal efectively with the low acceptance rate issues. Besides, this SMC-ABC implementation cannot sample from transformed PyMC3 variables, as it encounters boundary issues. 
+On the other hand, this implementation is quite unstable, meaning that some runs can show reasonably good results and others can present problems with covariance matrix computation or low acceptance rates. Which results in poor parameter estimation. In future work, we would like to include tunning of the number of acceptance/rejection steps that each chain goes through. This might deal efectively with the low acceptance rate issues. Besides, this SMC-ABC implementation cannot sample from transformed PyMC3 variables, as it encounters boundary issues. 
 
 As you can see there is still quite a bit to polish and improve on, which is why this project's work will extend after the Google Summer of Code program is over. 
 
