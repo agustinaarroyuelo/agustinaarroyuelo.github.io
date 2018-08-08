@@ -6,7 +6,7 @@ categories: jekyll update
 ---
 Hi, everyone! 
 
-This blog post contains a detailed review of the development of the Google Summer of Code project [Module for Approximate Bayesian Computation](https://summerofcode.withgoogle.com/projects/#6054208688619520). I will go over key points of the project and provide code snippets and links to commits that show the current state of the implementation. Along the way, I will point out challeging points and future work to be done. Finally I will test the work product in a common example.
+This blog post contains a detailed review of the development of the Google Summer of Code project [Module for Approximate Bayesian Computation](https://summerofcode.withgoogle.com/projects/#6054208688619520). I will go over key points of the project and provide code snippets and links to commits that show the current state of the implementation. Along the way, I will point out different challenges encountered and future work to be done. Finally I will test the work product in a common example.
 
 
 # Project Abstract
