@@ -1,6 +1,6 @@
 ---
 yout: post
-title:  "Google Summer of Code - Final Evaluation"
+title:  "Final Evaluation"
 date:   2018-07-08 16:00 +0530
 categories: jekyll update
 ---
@@ -333,7 +333,7 @@ ax.legend();
 
 
 ## Lotka–Volterra
-In this example we will try to find parameters for the Lotka-Volterra equations. A common biological competition model for describing how the number of individuals of each species changes when there is a predator/prey interaction (_A Biologist's Guide to Mathematical Modelling in Ecology and Evolution_,Otto and Day, 2007). For example, rabbits and foxes. Given an initial population number for each species, the integration of this ordinary differential equations (ODE) describe curves for the progression of both populations. This ODE's take four parameters:
+In this example we will try to find parameters for the Lotka-Volterra equations. A common biological competition model for describing how the number of individuals of each species changes when there is a predator/prey interaction (_A Biologist's Guide to Mathematical Modeling in Ecology and Evolution_,Otto and Day, 2007). For example, rabbits and foxes. Given an initial population number for each species, the integration of this ordinary differential equations (ODE) describe curves for the progression of both populations. This ODE's take four parameters:
 
 * a is the natural growing rate of rabbits, when there's no fox.
 * b is the natural dying rate of rabbits, due to predation.
@@ -369,7 +369,7 @@ def dX_dt(X, t, a, b, c, d):
     return np.array([ a*X[0] -   b*X[0]*X[1] , 
                   -c*X[1] + d*b*X[0]*X[1] ])
 ```
-This functions adds noise to the observed data.
+With this function I will generate noisy data to be used as observed data.
 
 ```python
 def add_noise(a, b, c, d):
@@ -380,15 +380,16 @@ def add_noise(a, b, c, d):
     return simulated[indexes]
 ```
 
-This is the simulator function.
+Then I define the simulator function, which performs the integration of the ODE.
 
 ```python
 def simulate(a, b, c, d): 
     return odeint(dX_dt, y0=X0, t=t, rtol=0.1, args=(a, b, c, d))
 ```
-Plotting observed data.
+
 
 ```python
+# plotting observed data.
 observed = add_noise(a, b, c, d )
 _, ax = plt.subplots(figsize=(16,7))
 ax.plot(observed, 'x')
@@ -398,9 +399,9 @@ ax.set_ylabel('population');
 
 ![png]({{ "/assets/images/output_39_0.png" | absolute_url}})
 
-PyMC3 model using Half-normal priors for each parameter, given that none of them can take negative values.
 
 ```python
+# PyMC3 model using Half-normal priors for each parameter, given that none of them can take negative values.
 with pm.Model() as model:
     a = pm.HalfNormal('a', 1, transform=None)
     b = pm.HalfNormal('b', 0.1, transform=None)
