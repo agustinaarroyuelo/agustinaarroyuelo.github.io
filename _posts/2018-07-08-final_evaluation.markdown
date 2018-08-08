@@ -520,7 +520,7 @@ On the other hand, this implementation is quite unstable, meaning that some runs
 
 As you can see there is still quite a bit to polish and improve on, which is why this project's work will extend after the Google Summer of Code program is over. 
 
-### Thanks Google Summer of Code. 
+#### Thanks to Google Summer of Code for promoting oper-source projects and bringing developers and students closer to active open-source communities.
 
 
 
