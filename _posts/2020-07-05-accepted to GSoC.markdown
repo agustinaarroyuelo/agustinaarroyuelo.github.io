@@ -1,7 +1,7 @@
 ---
 yout: post
 title:  "Accepted to Google Summer of Code with ArviZ"
-date:   2020-07-05 16:00 +0530
+date:   2020-05-07 16:00 +0530
 categories: jekyll update
 ---
 Hi, everyone! 
