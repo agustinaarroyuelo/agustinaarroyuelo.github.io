@@ -5,7 +5,7 @@ date:   2020-06-19 16:00 +0530
 categories: jekyll update
 ---
 
-In this blog post I will share my progress so far in GSoC 2020 with ArviZ. My intention for this blog post is to reflect the work in progress for discussion and planning purposes. Beware that there is little to no finished work displayed as I literally paused coding to write this blog post :)
+In this blog post I will share my progress so far in GSoC 2020 with ArviZ. My intention for this blog post is to reflect the work in progress for discussion and planning purposes. Beware that there is little to no finished work displayed.
 
 # Uploading a new `InferenceData` object
 
