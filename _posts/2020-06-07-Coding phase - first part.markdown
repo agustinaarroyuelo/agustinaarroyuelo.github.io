@@ -104,4 +104,4 @@ Besides the problem I already pointed with the KDE plot, I think the circular pl
 * Write documentation for the new arguments.
 * Improve general aspect of trace plot.
 
-You can always contact me for suggestions and comments. Have a great weekend!
+You can take a look at the code at my [branch](https://github.com/agustinaarroyuelo/arviz/tree/circular_kde_hist_plots). You can always contact me for suggestions and comments. Have a great weekend!
