@@ -44,7 +44,7 @@ the proposed structure's energy. Said Potential is bound by Boltzman's law.
 
 # Circular Histogram plot
 
-I managed to obtain a circular histogram modifying the ArviZ `plot_dist` function. I added a new argument to `plot_dist` called `is_circular`, in order to obtain the following plots. We were having some discussions with ArviZ developers about incorporating the variables domain into the `InferenceData` object so that ArviZ can automatically detect the variable is circular and proceed accordingly. This would be very convenient for plotting circular variables.
+I managed to obtain a circular histogram modifying the ArviZ `plot_dist` function. I added a new argument to `plot_dist` called `is_circular`, in order to obtain the following plots. We were having some discussions with ArviZ developers about incorporating the variables domain into the `InferenceData` object so that ArviZ can automatically detect if the variable is circular and proceed accordingly. This would be very convenient for plotting circular variables.
 
 Here's one of the first plots I obtained:
 
@@ -55,14 +55,14 @@ az.plot_dist(torsionals.posterior.tors, is_circular=True, kind='hist')
 
 ![png]({{ "/assets/images/histograma_angulos_2liq_1.png" | absolute_url}})
 
-While I was at it, I realized that when the input was in degrees the plot was not correct. This issue was a result of an innappropiate interpretation from the plot of the computed bins. What I decided to do was internally check if the input is in degrees and transform it to radians. 
+While I was at it, I realized that when the input was in degrees the plot was not correct. This issue was a result of an innappropiate interpretation from the plot of the computed bins. I decided to internally check if the input is in degrees and transform it to radians. 
 
 ```python
 if values.min() < np.pi and values.max() > np.pi:
 	values = np.deg2rad(values)
 ```
 
-This is just a practical rule I came up with after giving it little thought. Suggestions on better ways to handle this issue are very much welcomed.
+This is just a practical rule I came up with. I would like to check if there is a more theoretically supported way to do it.
 
 With this little rule and providing an input in degrees, I got this plot:
 
@@ -96,6 +96,7 @@ Besides the problem I already pointed with the KDE plot, I think the circular pl
 
 # To-Do:
 
+* Try to improve on ways to check if the input is in degrees or radians.
 * Develop appropiate testing for the new arguments.
 * Fix `plot_kde` for circular variables. This involves analysing ArviZ KDE computation and understanding why its functionning is not ideal in a circular setting.
 * Write documentation for the new arguments.
