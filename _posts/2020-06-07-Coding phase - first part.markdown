@@ -44,7 +44,9 @@ the proposed structure's energy. Said Potential is bound by Boltzman's law.
 
 # Circular Histogram plot
 
-I managed to obtain a circular histogram modifying the ArviZ `plot_dist` function. I added a new argument to `plot_dist` called `is_circular`, in order to obtain the following plots. We were having some discussions with ArviZ developers about incorporating the variables domain into the `InferenceData` object so that ArviZ can automatically detect if the variable is circular and proceed accordingly. This would be very convenient for plotting circular variables.
+I managed to obtain a circular histogram modifying the ArviZ `plot_dist` function. I added a new argument to `plot_dist` called `is_circular`, in order to obtain the following plots. 
+
+We were having some discussions with ArviZ developers about incorporating the variables domain into the `InferenceData` object so that ArviZ can automatically detect if the variable is circular and proceed accordingly. This would be very convenient for plotting circular variables.
 
 Here's one of the first plots I obtained:
 
