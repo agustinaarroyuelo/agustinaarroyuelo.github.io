@@ -94,7 +94,7 @@ az.plot_trace(torsionals, var_names=['tors', 'E', 'beta', 'alpha'], circular_var
 
 I am not so happy about how it looks, but it is a start...
 
-Besides the problem I already pointed with the KDE plot, I think the circular plots are too small and in consequence the entire plot has to much white space. In general there is a lot to improve about this first trace plot.
+Besides the problem I already pointed with the KDE plot, I think the circular plots are too small and in consequence the entire plot has to much white space. In general there is a lot to improve about this first circular trace plot.
 
 # To-Do:
 
