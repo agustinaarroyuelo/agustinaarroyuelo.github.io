@@ -48,7 +48,7 @@ I managed to obtain a circular histogram modifying the ArviZ `plot_dist` functio
 
 We were having some discussions with ArviZ developers about incorporating the variables domain into the `InferenceData` object so that ArviZ can automatically detect if the variable is circular and proceed accordingly. This would be very convenient for plotting circular variables.
 
-Here's one of the first plots I obtained:
+Here's an example of a circular histogram:
 
 ```python
 az.plot_dist(torsionals.posterior.tors, is_circular=True, kind='hist')
@@ -57,7 +57,7 @@ az.plot_dist(torsionals.posterior.tors, is_circular=True, kind='hist')
 
 ![png]({{ "/assets/images/histograma_angulos_2liq_1.png" | absolute_url}})
 
-While I was at it, I realized that when the input was in degrees the plot was not correct. This issue was a result of an innappropiate interpretation from the plot of the computed bins. I decided to internally check if the input is in degrees and transform it to radians. 
+While I was at it, I realized that when the input was in degrees the plot was not correct. This issue was a result of an innappropiate interpretation of the computed bins by the plotting function. I decided to internally check if the input is in degrees and transform it to radians. 
 
 ```python
 if values.min() < np.pi and values.max() > np.pi:
@@ -84,7 +84,7 @@ As you can see, there's an issue with this KDE as the density's edges don't meet
 
 # Circular Trace plot
 
-For the circular trace plot I added an argument to the function called `circular_vars`. This is to identify which variables need a circular KDE for the trace plot.
+For the circular trace plot I added an argument to the function called `circular_vars`. This is to identify which variables need a circular KDE.
 
 ```python
 az.plot_trace(torsionals, var_names=['tors', 'E', 'beta', 'alpha'], circular_vars=['tors'])
