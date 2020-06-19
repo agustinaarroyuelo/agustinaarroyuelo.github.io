@@ -1,17 +1,17 @@
 ---
 yout: post
-title:  "First week of coding phase"
+title:  "First weeks of coding phase"
 date:   2020-06-19 16:00 +0530
 categories: jekyll update
 ---
 
-In this blog post I will share my progress so far in GSoC 2020 with ArviZ. My intention for this blog post is to reflect the work in progress for discussion and planning purposes. Beware that there is little to no finished work displayed as I literally paused coding to write this blog post. 
+In this blog post I will share my progress so far in GSoC 2020 with ArviZ. My intention for this blog post is to reflect the work in progress for discussion and planning purposes. Beware that there is little to no finished work displayed as I literally paused coding to write this blog post :)
 
 # Uploading a new `InferenceData` object
 
-Given that my project involves working with circular variables, the first task I encountered was to find a suitable `InferenceData` object, to use in examples and tests. As I have worked with molecules \\\phi\\ and \\\psi\\ torsion angles in the past, I have some models and data that came handy. 
+Given that my project involves working with circular variables, the first task I encountered was to find a suitable `InferenceData` object, to use in examples and tests. As I have worked with molecules \(\phi\) and \(\psi\) torsion angles in the past, I have some models and data that came handy. 
 
-The `InferenceData` object I decided to upload to figshare.com contains the sampled values for two pairs of \\\phi\\ and \\\psi\\ torsion angles in a glycan molecule. This glycan molecule is a part of a resolved protein structure under PDB (Protein Data Bank) id. Nº: [2LIQ](https://www.rcsb.org/structure/2liq). It is a quite small glycan, only containing three subunits. 
+The `InferenceData` object I decided to upload to figshare.com contains the sampled values for two pairs of \(\phi\) and \(\psi\) torsion angles in a glycan molecule. This glycan molecule is a part of a resolved protein structure under PDB (Protein Data Bank) id. Nº: [2LIQ](https://www.rcsb.org/structure/2liq). It is a quite small glycan, only containing three subunits. 
 
 ![png]({{ "/assets/images/2liq.png" | absolute_url}})
 
@@ -92,11 +92,11 @@ az.plot_trace(torsionals, var_names=['tors', 'E', 'beta', 'alpha'], circular_var
 
 I am not so happy about how it looks, but it is a start...
 
-Besides the problem I already pointed with the KDE plot, I think the circular plots are too small and in consecuence the entire plot has to much white space. In general there is a lot to improve about this first trace plot.
+Besides the problem I already pointed with the KDE plot, I think the circular plots are too small and in consequence the entire plot has to much white space. In general there is a lot to improve about this first trace plot.
 
 # To-Do:
 
 * Develop appropiate testing for the new arguments.
-* Fix `plot_KDE`. This involves analysing ArviZ KDE computation and understanding why its functionning is not ideal in a circular setting.
-* Write documentation.
-* Improve general aspect of trace plots.
+* Fix `plot_kde` for circular variables. This involves analysing ArviZ KDE computation and understanding why its functionning is not ideal in a circular setting.
+* Write documentation for the new arguments.
+* Improve general aspect of trace plot.
