@@ -101,4 +101,4 @@ Besides the problem I already pointed with the KDE plot, I think the circular pl
 * Write documentation for the new arguments.
 * Improve general aspect of trace plot.
 
-Please be sure to contact me for suggestions and comments. Have a great weekend!
+You can always contact me for suggestions and comments. Have a great weekend!
