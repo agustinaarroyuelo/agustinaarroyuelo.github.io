@@ -9,9 +9,9 @@ In this blog post I will share my progress so far in GSoC 2020 with ArviZ. My in
 
 # Uploading a new `InferenceData` object
 
-Given that my project involves working with circular variables, the first task I encountered was to find a suitable `InferenceData` object, to use in examples and tests. As I have worked with molecules $\phi$ and $\psi4 torsion angles in the past, I have some models and data that came handy. 
+Given that my project involves working with circular variables, the first task I encountered was to find a suitable `InferenceData` object, to use in examples and tests. As I have worked with molecules φ and ψ torsion angles in the past, I have some models and data that came handy. 
 
-The `InferenceData` object I decided to upload to figshare.com contains the sampled values for two pairs of $\phi$ and $\psi$ torsion angles in a glycan molecule. This glycan molecule is a part of a resolved protein structure under PDB (Protein Data Bank) id. Nº: [2LIQ](https://www.rcsb.org/structure/2liq). It is a quite small glycan, only containing three subunits. 
+The `InferenceData` object I decided to upload to figshare.com contains the sampled values for two pairs of φ and ψ torsion angles in a glycan molecule. This glycan molecule is a part of a resolved protein structure under PDB (Protein Data Bank) id.: [2LIQ](https://www.rcsb.org/structure/2liq). It is a quite small glycan, only containing three subunits. 
 
 ![png]({{ "/assets/images/2liq.png" | absolute_url}})
 
@@ -100,3 +100,5 @@ Besides the problem I already pointed with the KDE plot, I think the circular pl
 * Fix `plot_kde` for circular variables. This involves analysing ArviZ KDE computation and understanding why its functionning is not ideal in a circular setting.
 * Write documentation for the new arguments.
 * Improve general aspect of trace plot.
+
+Please be sure to contact me for suggestions and comments. Have a great weekend!
