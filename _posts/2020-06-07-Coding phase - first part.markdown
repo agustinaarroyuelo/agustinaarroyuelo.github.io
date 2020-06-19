@@ -9,11 +9,11 @@ In this blog post I will share my progress so far in GSoC 2020 with ArviZ. My in
 
 # Uploading a new `InferenceData` object
 
-Given that my project involves working with circular variables, the first task I encountered was to find a suitable `InferenceData` object, to use in examples and tests. As I have worked with molecules \phi and \psi torsion angles in the past, I have some models and data that came handy. 
+Given that my project involves working with circular variables, the first task I encountered was to find a suitable `InferenceData` object, to use in examples and tests. As I have worked with molecules $\phi$ and $\psi4 torsion angles in the past, I have some models and data that came handy. 
 
-The `InferenceData` object I decided to upload to figshare.com contains the sampled values for two pairs of \phi and \psi torsion angles in a glycan molecule. This glycan molecule is a part of a resolved protein structure under PDB (Protein Data Bank) id. Nº: [2LIQ](https://www.rcsb.org/structure/2liq). It is a quite small glycan, only containing three subunits. 
+The `InferenceData` object I decided to upload to figshare.com contains the sampled values for two pairs of $\phi$ and $\psi$ torsion angles in a glycan molecule. This glycan molecule is a part of a resolved protein structure under PDB (Protein Data Bank) id. Nº: [2LIQ](https://www.rcsb.org/structure/2liq). It is a quite small glycan, only containing three subunits. 
 
-<div style="text-align: center">![png]({{ "/assets/images/2liq.png" | absolute_url}})</div>
+![png]({{ "/assets/images/2liq.png" | absolute_url}})
 
 After uploading it to figshare.com, I made it available to import form ArviZ with:
 
