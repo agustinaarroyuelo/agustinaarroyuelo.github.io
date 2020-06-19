@@ -9,9 +9,9 @@ In this blog post I will share my progress so far in GSoC 2020 with ArviZ. My in
 
 # Uploading a new `InferenceData` object
 
-Given that my project involves working with circular variables, the first task I encountered was to find a suitable `InferenceData` object, to use in examples and tests. As I have worked with molecules $\phi$ and $\psi$ torsion angles in the past, I have some models and data that came handy. 
+Given that my project involves working with circular variables, the first task I encountered was to find a suitable `InferenceData` object, to use in examples and tests. As I have worked with molecules \\\phi\\ and \\\psi\\ torsion angles in the past, I have some models and data that came handy. 
 
-The `InferenceData` object I decided to upload to figshare.com contains the sampled values for two pairs of $\phi$ and $\psi$ torsion angles in a glycan molecule. This glycan molecule is a part of a resolved protein structure under PDB (Protein Data Bank) id. Nº: [2LIQ](https://www.rcsb.org/structure/2liq). It is a quite small glycan, only containing three subunits. 
+The `InferenceData` object I decided to upload to figshare.com contains the sampled values for two pairs of \\\phi\\ and \\\psi\\ torsion angles in a glycan molecule. This glycan molecule is a part of a resolved protein structure under PDB (Protein Data Bank) id. Nº: [2LIQ](https://www.rcsb.org/structure/2liq). It is a quite small glycan, only containing three subunits. 
 
 ![png]({{ "/assets/images/2liq.png" | absolute_url}})
 
@@ -44,7 +44,7 @@ the proposed structure's energy. Said Potential is bound by Boltzman's law.
 
 # Circular Histogram plot
 
-I managed to obatain a circular histogram modifying the ArviZ `plot_dist` function. I added a new argument to `plot_dist` called `is_circular`, in order to obtain the following plots. We were having some discussions with ArviZ developers about incorporating the variables domain into the `InferenceData` object so that ArviZ can automatically detect the variable is circular and proceed accordingly. This would be very convenient for plotting circular variables.
+I managed to obtain a circular histogram modifying the ArviZ `plot_dist` function. I added a new argument to `plot_dist` called `is_circular`, in order to obtain the following plots. We were having some discussions with ArviZ developers about incorporating the variables domain into the `InferenceData` object so that ArviZ can automatically detect the variable is circular and proceed accordingly. This would be very convenient for plotting circular variables.
 
 Here's one of the first plots I obtained:
 
@@ -55,11 +55,7 @@ az.plot_dist(torsionals.posterior.tors, is_circular=True, kind='hist')
 
 ![png]({{ "/assets/images/histograma_angulos_2liq_1.png" | absolute_url}})
 
-While I was at it, I realized that when the input was in degrees the plot was not correct. 
-
-![png]({{ "/assets/images/histograma_angulos_2liq.png" | absolute_url}})
-
-This issue was a result of an innappropiate interpretation from the plot of the computed bins. What I decided to do was internally check if the input is in degrees and transform it to radians. 
+While I was at it, I realized that when the input was in degrees the plot was not correct. This issue was a result of an innappropiate interpretation from the plot of the computed bins. What I decided to do was internally check if the input is in degrees and transform it to radians. 
 
 ```python
 if values.min() < np.pi and values.max() > np.pi:
@@ -101,5 +97,6 @@ Besides the problem I already pointed with the KDE plot, I think the circular pl
 # To-Do:
 
 * Develop appropiate testing for the new arguments.
-* Fix `plot_KDE`. This involves analysing ArviZ KDE computation and understanding why its funcionning is not ideal in a circular setting.
-* 
+* Fix `plot_KDE`. This involves analysing ArviZ KDE computation and understanding why its functionning is not ideal in a circular setting.
+* Write documentation.
+* Improve general aspect of trace plots.
