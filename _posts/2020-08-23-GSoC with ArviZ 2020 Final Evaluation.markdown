@@ -16,5 +16,5 @@ I am really happy that all this code got merged to master :)
 
 Currently, I am working on adding the [separation plot](https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1540-5907.2011.00525.x) to ArviZ: [PR](https://github.com/arviz-devs/arviz/pull/1359).
 
-
+Some of the items on my original proposal that are left to do are adding the [quantile-dots plot](https://vega.github.io/vega/examples/quantile-dot-plot/#:~:text=A%20quantile%20dot%20plot%20represents,them%20in%20a%20dot%20plot.&text=If%20we%20are%20willing%20to,arrive%20at%20the%20bus%20stop.) and reviewing the computation of R-hat, ESS and MCE diagnostics to check its correctness in a circular variable setting. 
 
